@@ -31,6 +31,8 @@ public class punto {
 		this.y = y;
 	}
 		
-	
+	public float sum() {
+		return (this.x + this.y)
+	}
 		
 }
