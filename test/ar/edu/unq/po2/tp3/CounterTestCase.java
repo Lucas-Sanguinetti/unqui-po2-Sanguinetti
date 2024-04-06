@@ -46,5 +46,13 @@ class CounterTestCase {
 		
 		assertEquals(amount, 3);
 	}
-
+	
+	@Test
+	public void testMasPares() {
+		int amount = counter.masPares();
+		System.out.println(counter.multiploMasAlto(3,9));
+		assertEquals(amount, 2);
+	}
+	
+	
 }

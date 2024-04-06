@@ -51,5 +51,57 @@ public class Counter {
 		
 	}
 	
+	public int masPares() {
+		int x = -1;
+		for (int i = 0; i < elementos.size(); i++) {
+			x = elQueTengaMasPares(x, elementos.get(i));
+		}
+		return x;
+	}
 	
+	public int elQueTengaMasPares(int a, int b) {
+		if (paresDe(a)>= paresDe(b)) {
+			return a;
+		} else {
+			return b;
+		}
+	}
+	
+	public int paresDe(int x) {
+		int pares = 0;
+		int numeroActual = x;
+		while (numeroActual/10 >0) {
+			pares += delta(hayDigitoPar(numeroActual));
+			numeroActual /= 10;
+		}
+		pares += delta(hayDigitoPar(numeroActual));
+		return pares;
+		
+	}
+	
+	public boolean hayDigitoPar(int x) {
+		if (x%10 >= 1) {
+			return ((x%10)%2 == 0) ;
+		} else {
+			return (x%2 == 0);
+		}
+
+	}
+	
+	public int multiploMasAlto(int x, int y) {
+		if (x*y > 1000) {
+			return -1;
+		} else {
+			return multiploMasCercanoA(x,y,1000);
+		}
+	}
+	
+	public int multiploMasCercanoA(int x, int y, int z) {
+		int minimo = x*y;
+		int multiploMasCercano = 1;
+		while (minimo*multiploMasCercano <= z +1) {
+			multiploMasCercano++;
+		}
+		return (multiploMasCercano-1)*minimo;
+	}
 }
