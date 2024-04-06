@@ -32,7 +32,7 @@ public class punto {
 	}
 		
 	public float sum() {
-		return (this.x + this.y)
+		return (this.x + this.y);
 	}
 		
 }
