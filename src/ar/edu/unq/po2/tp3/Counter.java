@@ -11,7 +11,7 @@ public class Counter {
 	}
 	
 	
-	public void add(int x){
+	public void addNumber(int x){
 		
 		elementos.add(x);
 		
