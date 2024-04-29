@@ -7,7 +7,12 @@ public class ProductoArtesanal extends Producto{
 	}
 
 	public double getPrecio() {
-		return this.precio;
+		double p = 0d;
+		if (this.tieneStock()) {
+			this.decrementarStock();
+			p = this.precio;
+		}
+		return p;
 	}
 	
 }

@@ -3,24 +3,25 @@ package mercado.tp5;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Caja {
+public class Caja{
 
-	private List<Producto> productos;
+	private double precioTotal;
+	private Agencia agencia;
 
-	public Caja() {
+	public Caja(Agencia agencia) {
 		super();
+		this.precioTotal = 0d;
+		this.agencia = agencia;
 	}
 	
-	public void registrar(Producto p) {
-		this.productos.add(p);	
+	public void registrar(Factura factura) {
+		this.agencia.registrarPago(factura);
+		this.precioTotal += factura.getPrecio();	
+
 	}
 	
 	public double facturar() {
-		double total = 0;
-		for (int i = 0; (i+1) <= productos.size(); i++) {
-			total += productos.get(i).getPrecio();
-		}
-		return total;
+		return precioTotal;
 	}
 }
 

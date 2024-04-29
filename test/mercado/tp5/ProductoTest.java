@@ -12,8 +12,8 @@ class ProductoTest {
 	
 	@BeforeEach
 	public void setup(){
-		this.p1 = new ProductoArtesanal("Arroz", 50d, 2);
-		this.p2 = new ProductoIndustrial("Arroz", 50d, 0);
+		this.p1 = new ProductoArtesanal("Arroz", 50d, 3);
+		this.p2 = new ProductoIndustrial("Arroz", 50d, 1);
 	}
 	
 	@Test
@@ -28,8 +28,16 @@ class ProductoTest {
 	@Test
 	public void testStock() {
 		p1.decrementarStock();
+		
+		assertEquals(p1.getStock(), 2);
+
+	}
+	
+	@Test
+	public void testStock2() {
 		p2.decrementarStock();
-		assertEquals(p1.getStock(), 1);
+		p2.decrementarStock();
+		
 		assertEquals(p2.getStock(), 0);
 
 	}

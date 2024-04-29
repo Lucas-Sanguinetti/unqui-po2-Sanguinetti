@@ -7,7 +7,12 @@ public class ProductoIndustrial extends Producto {
 	}
 
 	public double getPrecio() {
-		return (this.precio*0.9);
+		double p = 0d;
+		if (this.tieneStock()) {
+			this.decrementarStock();
+			p = (this.precio)*0.9;
+		}
+		return p;
 	}
 	
 }

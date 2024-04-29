@@ -1,7 +1,7 @@
 package mercado.tp5;
 
 
-public abstract class Producto {
+public abstract class Producto implements Factura {
 
 	protected String nombre;
 	protected Double precio;
@@ -15,36 +15,26 @@ public abstract class Producto {
 		this.stock = stock;
 	}
 
-
-	public void aumentarPrecio(double n) {
-		this.precio += n ;
-	}
-	
 	
 	public void decrementarStock() {
-			this.stock -= 1;
+		if (this.tieneStock()){
+			this.stock = this.stock - 1;
+		}
+
 		
 	}
 	
-	public String getNombre() {
-		return nombre;
-	}
-
-
-	public int getStock() {
-		return this.stock;
+	public Boolean tieneStock() {
+		return this.stock >= 1;
 	}
 	
-	public double getPrecioYDecrementarStock(){
-		double p = 0d;
-		if (this.stock >= 1) {
-			this.decrementarStock();
-			p = this.getPrecio();
-		}
-		return p;
-	}
 	
 	public abstract double getPrecio();
+
+
+	public Integer getStock() {
+		return this.stock;
+	}
 	
 }
 
