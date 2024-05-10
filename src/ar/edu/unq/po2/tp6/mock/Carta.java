@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.tp6.mock;
 
-import java.util.function.BooleanSupplier;
 
 public class Carta {
 	

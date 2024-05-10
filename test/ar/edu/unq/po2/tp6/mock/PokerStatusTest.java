@@ -1,30 +1,48 @@
 package ar.edu.unq.po2.tp6.mock;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import ar.edu.unq.po2.tp6.mock.Carta;
-import ar.edu.unq.po2.tp6.mock.Palo;
-import ar.edu.unq.po2.tp6.mock.PokerStatus;
 
 class PokerStatusTest {
 	
 	private PokerStatus ps;
+	private Carta c1;
+	private Carta c2;
+	private Carta c3;
+	private Carta c4;
+	private Carta c5;
+	
+	
+	
 	
 	@BeforeEach
 	void setup() {
 		this.ps = new PokerStatus();
+		this.c1 = mock(Carta.class);
+		this.c2 = mock(Carta.class);
+		this.c3 = mock(Carta.class);
+		this.c4 = mock(Carta.class);
+		this.c5 = mock(Carta.class);
+		
 	}
 
 	@Test
 	void pokerTest1() {
-		Carta c1 = new Carta(1, Palo.Diamante);
-		Carta c2 = new Carta(1, Palo.Pica);
-		Carta c3 = new Carta(1, Palo.Corazon);
-		Carta c4 = new Carta(1, Palo.Trebol);
-		Carta c5 = new Carta(13, Palo.Diamante);
-		ps.registrarCartas(c1,c2,c3,c4,c5);
+		when(c1.getNumero()).thenReturn(1);
+		when(c1.getPalo()).thenReturn(Palo.Diamante);
+		when(c2.getNumero()).thenReturn(1);
+		when(c2.getPalo()).thenReturn(Palo.Pica);
+		when(c3.getNumero()).thenReturn(1);
+		when(c3.getPalo()).thenReturn(Palo.Corazon);
+		when(c4.getNumero()).thenReturn(1);
+		when(c4.getPalo()).thenReturn(Palo.Trebol);
+		when(c5.getNumero()).thenReturn(13);
+		when(c5.getPalo()).thenReturn(Palo.Diamante);
+		ps.registrarCartas(this.c1,this.c2,this.c3,this.c4,this.c5);
 		assertTrue(ps.esPoker());
 	}
 	
@@ -66,12 +84,17 @@ class PokerStatusTest {
 	
 	@Test
 	void jugadasTest() {
-		Carta c1 = new Carta(1, Palo.Diamante);
-		Carta c2 = new Carta(1, Palo.Pica);
-		Carta c3 = new Carta(1, Palo.Corazon);
-		Carta c4 = new Carta(1, Palo.Trebol);
-		Carta c5 = new Carta(13, Palo.Diamante);
-		ps.registrarCartas(c1,c2,c3,c4,c5);
+		when(c1.getNumero()).thenReturn(1);
+		when(c1.getPalo()).thenReturn(Palo.Diamante);
+		when(c2.getNumero()).thenReturn(1);
+		when(c2.getPalo()).thenReturn(Palo.Pica);
+		when(c3.getNumero()).thenReturn(1);
+		when(c3.getPalo()).thenReturn(Palo.Corazon);
+		when(c4.getNumero()).thenReturn(1);
+		when(c4.getPalo()).thenReturn(Palo.Trebol);
+		when(c5.getNumero()).thenReturn(13);
+		when(c5.getPalo()).thenReturn(Palo.Diamante);
+		ps.registrarCartas(this.c1,this.c2,this.c3,this.c4,this.c5);
 		assertTrue(ps.jugada().equals("Poker"));
 	}
 	

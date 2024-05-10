@@ -1,12 +1,14 @@
 package ar.edu.unq.po2.tp6.mock;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.tp6.mock.Carta;
-import ar.edu.unq.po2.tp6.mock.Palo;
+
+
 
 class CartaTest {
 
@@ -44,7 +46,8 @@ class CartaTest {
 	
 	@Test
 	void lasCartasSabenSiTienenElMismoPalo2Test() {
-		Carta c2 = new Carta(5,Palo.Diamante);
+		Carta c2 = mock(Carta.class);
+		when(c2.getPalo()).thenReturn(Palo.Diamante);
 		assertTrue(c.tieneMismoPalo(c2));
 	}
 
